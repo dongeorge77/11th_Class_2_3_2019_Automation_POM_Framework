@@ -2,7 +2,7 @@ import time
 import pytest
 from selenium import webdriver
 from Pages.LoginPage import LoginPage
-from Pages.HomePage import LogoutPage
+from Pages.HomePage import HomePage
 
 class TestLogin:
     @pytest.fixture(scope='class')
@@ -21,5 +21,8 @@ class TestLogin:
         lp.click_on_login_btn()
 
     def test_logout(self,test_launch_browser):
-        lo=LogoutPage(driver)
+        time.sleep(3)
+        lo=HomePage(driver)
         lo.click_on_logout_btn()
+        time.sleep(2)
+        driver.quit()
